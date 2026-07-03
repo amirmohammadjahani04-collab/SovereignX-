@@ -2,7 +2,7 @@
 
 # 🚀 MyOS v1.0 - Open Source Operating System
 
-## 👨‍💻 Creator: Amir Mohammad Jahani
+## 👨‍💻 Creator: Amir Mohammad Jahani (amirmohammadjahani04-collab)
 **Age: 14 years old**
 
 ---
@@ -115,7 +115,7 @@ qemu-system-i386 -drive format=raw,file=os-image.bin
 
 ## 🌍 About the Developer
 
-**Amir Mohammad Jahani**
+**Amir Mohammad Jahani** - [@amirmohammadjahani04-collab](https://github.com/amirmohammadjahani04-collab)
 - 🎓 Age: 14 years old
 - 💻 Self-taught programmer
 - 🔧 OS & Systems developer
@@ -146,26 +146,26 @@ qemu-system-i386 -drive format=raw,file=os-image.bin
 ## 🚀 Getting Started
 
 1. **Clone the repository**
-   ```bash
-   git clone https://github.com/amirmohammadjahani04-collab/MyOS
-   cd MyOS
-   ```
+    ```bash
+    git clone https://github.com/amirmohammadjahani04-collab/MyOS
+    cd MyOS
+    ```
 
 2. **Install dependencies**
-   ```bash
-   pkg install build-essential binutils gcc
-   ```
+    ```bash
+    pkg install build-essential binutils gcc
+    ```
 
 3. **Build the OS**
-   ```bash
-   chmod +x build.sh
-   ./build.sh
-   ```
+    ```bash
+    chmod +x build.sh
+    ./build.sh
+    ```
 
 4. **Run on QEMU**
-   ```bash
-   qemu-system-i386 -drive format=raw,file=os-image.bin
-   ```
+    ```bash
+    qemu-system-i386 -drive format=raw,file=os-image.bin
+    ```
 
 ---
 
