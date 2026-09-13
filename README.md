@@ -2,7 +2,7 @@
 
 An Independent Operating System & Native Software Ecosystem
 
-SovereignX is an independent operating system designed and developed with the goal of building a dedicated, extensible, and self-controlled computing platform from the ground up.
+# SovereignX is an independent operating system designed and developed with the goal of building a dedicated, extensible, and self-controlled computing platform from the ground up.
 
 The project covers the fundamental layers of an operating system, including the Bootloader, Kernel, System Call Interface, Memory Management, Filesystem, Networking, Development Tools, and Desktop GUI.
 
