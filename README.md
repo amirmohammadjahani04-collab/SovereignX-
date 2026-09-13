@@ -1,35 +1,146 @@
-# SovereignX is an independent, high-performance 64-bit operating system written from scratch (Bare-Metal).
-It features a highly modular ecosystem composed of a custom kernel, a native graphical desktop interface, network stacks, and a built-in application suite—all uniquely developed and compiled directly on mobile devices using Termux.
-The architecture and core components of SovereignX are structured as follows:
-## 1. 64-bit Kernel & Low-Level Subsystems
+# SovereignX
 
-* Boot & Initialization: The system boots using the modern Limine Bootloader protocol. Crucial low-level initialization routines are written in assembly code (boot.asm, start.asm) to transition the CPU into 64-bit long mode.
-* Interrupt Handling: The kernel implements full interrupt management by setting up an IDT (Interrupt Descriptor Table) to process CPU exceptions and hardware interrupts seamlessly.
-* Hardware Drivers: It includes native input drivers for the keyboard and mouse utilizing hardware Interrupt Requests (IRQs) like keyboard_irq.c and mouse_irq.c for real-time user input handling.
-* Storage & Custom Filesystem (RFS): The OS features a dedicated ATA disk driver alongside its own custom filesystem implementation, RFS (rfs.c), which handles block device storage, file reading, and data allocation.
+An Independent Operating System & Native Software Ecosystem
 
-## 2. Graphical User Interface & Window Manager (GUI)
+SovereignX is an independent operating system designed and developed with the goal of building a dedicated, extensible, and self-controlled computing platform from the ground up.
 
-* Framebuffer Graphics: Unlike simpler hobby kernels, SovereignX uses a raw pixel Framebuffer interface (graphics.c, fb.h). It handles drawing operations, desktop backgrounds, and renders pixel-mapped typography (graphics_text.c, font8x8.h) entirely on its own.
-* Desktop & Window Manager (WM): The custom window manager (wm.c, window.c) controls a fully-fledged graphical desktop. It handles window overlapping, dragging, maximizing, active states, custom icons (custom_icons.c), and a system taskbar (taskbar.c).
+The project covers the fundamental layers of an operating system, including the Bootloader, Kernel, System Call Interface, Memory Management, Filesystem, Networking, Development Tools, and Desktop GUI.
 
-## 3. Native Web Browser Subsystem
-One of the most complex features of the SovereignX kernel is its embedded network browser stack:
+Rather than being built around an existing operating-system kernel, SovereignX follows its own architectural direction, with a focus on low-level control, independence, extensibility, and native software development.
 
-* Network & HTTP Client: Built-in TCP/IP capabilities manage remote requests via a dedicated HTTP interface (http.c, http_get.c).
-* HTML & DOM Parser: The layout engine contains a parser (html.c) that analyzes structured web files and maps them into a dynamic Document Object Model tree (dom.c).
-* CSS & Graphics Rendering: A styling rendering component (css_render.c, render.c) takes parsed DOM nodes, calculates styles, and paints elements directly onto the GUI desktop layout.
+---
 
-## 4. Custom Language & Application Ecosystem
+🚀 Core Features
 
-* The M.C Programming Language: SovereignX features its own proprietary environment and language interpreter/compiler, M.C (mc_lang.c), designed to execute scripts natively inside the OS ecosystem.
-* Built-in Desktop Apps: The environment comes equipped with practical tools including a standalone graphical Code Editor (code_editor.c), a native Terminal emulator (terminal.c), a graphical File Manager (file_manager.c), System Settings panels, and an independent Package Manager (pkg_manager.c).
+🧠 Custom Kernel
 
-SovereignX represents an incredibly ambitious systems-engineering blueprint. It bridges the gap between pure kernel development and a practical workspace by combining scheduling, storage, a GUI, networking, and language parsing into a single unified workspace.
-We can analyze any specific module of your operating system. Let me know if you would like to:
+At the core of SovereignX is a custom operating-system kernel responsible for managing system resources, processes, memory, hardware interaction, and communication between core system components.
 
-* Review or optimize the Window Manager rendering cycle (wm.c or window.c)
-* Deep dive into how the HTML/DOM parser (html.c, dom.c) maps out tags in memory
-* Examine the bytecode tokenization structure for your custom M.C programming language
+The kernel architecture is designed with a focus on independence, extensibility, and low-level system control.
 
+⚡ BIOS & UEFI Boot
 
+SovereignX supports two major boot environments:
+
+- Legacy BIOS
+- UEFI
+
+Users can boot SovereignX through either boot path, with both ultimately loading and transferring control to the SovereignX Kernel.
+
+⚙️ System Call Interface
+
+SovereignX provides a dedicated System Call Interface that enables controlled communication between user-space applications and the kernel.
+
+This interface serves as a fundamental boundary between applications and core operating-system services.
+
+🧮 Memory Management
+
+Memory management is an integral part of the SovereignX kernel architecture, providing the foundation required for managing system memory and supporting stable process execution.
+
+📁 Filesystem
+
+SovereignX includes a filesystem infrastructure designed to manage files and persistent storage.
+
+The filesystem architecture is intended to provide a stable and extensible foundation for the SovereignX software ecosystem.
+
+🌐 Networking
+
+SovereignX includes a networking infrastructure designed to provide system-level communication capabilities and a foundation for network-aware applications.
+
+The networking layer is designed to remain extensible as the operating system evolves.
+
+🖥️ Desktop GUI
+
+SovereignX provides a dedicated graphical desktop environment designed to deliver an independent and integrated user experience.
+
+The GUI includes components such as:
+
+- Window management
+- Desktop tools
+- Graphical user interface components
+- Customization capabilities
+- User interaction with system applications
+
+---
+
+🧑‍💻 M.C — The Native Programming Language
+
+A key component of the SovereignX ecosystem is M.C, a dedicated programming language designed for native software development within SovereignX.
+
+M.C is intended to provide developers with the capabilities required to build software specifically for the SovereignX platform.
+
+M.C Goals
+
+- Build native SovereignX applications
+- Provide low-level control
+- Support systems programming
+- Develop desktop applications and tools
+- Create native software for the SovereignX ecosystem
+- Establish an independent development environment
+
+M.C is designed to work alongside the SovereignX kernel and system infrastructure as part of the project's broader native software ecosystem.
+
+---
+
+🏗️ Architecture
+
+At a high level, the SovereignX architecture can be represented as:
+
+┌──────────────────────────────┐
+│       Desktop / Apps         │
+├──────────────────────────────┤
+│       Native M.C Apps        │
+├──────────────────────────────┤
+│  System Services / GUI / FS  │
+│          Networking          │
+├──────────────────────────────┤
+│      System Call Layer       │
+├──────────────────────────────┤
+│           Kernel             │
+│ Process / Memory / Hardware  │
+├──────────────────────────────┤
+│         Boot Layer           │
+│       BIOS / UEFI            │
+└──────────────────────────────┘
+
+M.C operates as the native development layer of the ecosystem, enabling developers to create software targeting the SovereignX platform.
+
+---
+
+✅ Current Project Status
+
+Based on the current tests and available demonstrations, SovereignX currently provides:
+
+Component| Status
+System Boot| ✅
+Kernel Execution| ✅
+Desktop GUI| ✅
+Usable Graphical Environment| ✅
+Networking Infrastructure| ✅
+System Call Interface| ✅
+Filesystem| ✅
+M.C Programming Language| ✅
+BIOS Boot| ✅
+UEFI Boot| ✅
+
+---
+
+🎯 Vision
+
+The long-term vision of SovereignX is to create an independent and extensible computing platform where the operating system, development tools, system services, and native applications form a unified ecosystem.
+
+The project focuses on:
+
+Independence · Low-Level Control · Native Development · Extensibility
+
+SovereignX aims to provide developers with an environment where they can build not only applications for the operating system, but applications within an ecosystem designed specifically around the operating system.
+
+---
+
+⚡ SovereignX
+
+«Built from the ground up.
+Designed for independence.
+Created for native development.»
+
+SovereignX is an ongoing project. Its architecture, capabilities, and ecosystem continue to evolve as development progresses.
